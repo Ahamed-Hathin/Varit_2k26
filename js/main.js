@@ -39,7 +39,7 @@ function renderEvents(events = eventsData) {
     
     // Add staggered animations
     const eventCards = eventsGrid.querySelectorAll('.col-md-6');
-    addStaggerAnimation(eventCards, 100);
+    addStaggerAnimation(eventCards, 100);    
 }
 
 // Open event modal
@@ -60,6 +60,25 @@ function openEventModal(event) {
         li.textContent = rule;
         rulesList.appendChild(li);
     });
+    
+    // Add topics section if event has topics (for PPT event)
+    if (event.Topics && event.Topics.length > 0) {
+        const topicsSection = document.createElement('div');
+        topicsSection.className = 'event-topics mt-4';
+        topicsSection.innerHTML = `
+            <h6><i class="fas fa-lightbulb"></i> Available Topics</h6>
+            <ul class="topics-list"></ul>
+        `;
+        
+        const topicsList = topicsSection.querySelector('.topics-list');
+        event.Topics.forEach(topic => {
+            const li = document.createElement('li');
+            li.textContent = topic;
+            topicsList.appendChild(li);
+        });
+        
+        rulesList.parentNode.appendChild(topicsSection);
+    }
     
     modal.show();
 }
