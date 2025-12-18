@@ -44,8 +44,25 @@ const eventsData = [
             'PPT should be submitted before the deadline (Strictly : On-spot submissions are not allowed)',
             'Paper should be in IEEE format and not exceeding 8 pages.',
             'The decision of the judges is final.'
+        ],
 
-        ]
+       Topics:[
+        	  'Data Science',
+	  'Artificial Intelligence',
+	  'Machine Learning',  
+	  'Big Data Computing',
+	  'Human-Computer Interface (HCI)',
+	  'Wearable Computing',
+	  'Cyber Security',
+	  'Web3 (Blockchain)',
+	  'Visual Analytics',
+	  'Computing Algorithms',
+	  'Deep Learning and Its Applications',
+	  'Ethical and Societal Implications',
+	  'Quantum Computing'
+
+
+       ] 
     },
 
 
