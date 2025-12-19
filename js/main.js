@@ -61,8 +61,14 @@ function openEventModal(event) {
         rulesList.appendChild(li);
     });
     
-    // Add topics section if event has topics (for PPT event)
-    if (event.Topics && event.Topics.length > 0) {
+    // Clear any existing topics section first
+    const existingTopics = rulesList.parentNode.querySelector('.event-topics');
+    if (existingTopics) {
+        existingTopics.remove();
+    }
+    
+    // Add topics section only for Slide Sync event (evt3)
+    if (event.id === 'evt3' && event.Topics && event.Topics.length > 0) {
         const topicsSection = document.createElement('div');
         topicsSection.className = 'event-topics mt-4';
         topicsSection.innerHTML = `
