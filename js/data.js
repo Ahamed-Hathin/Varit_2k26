@@ -110,9 +110,13 @@ const eventsData = [
             '	Solo performances are also allowed.',
             '	Vulgarism, Offensive songs and music are not allowed. ', 
             '	Maximum Duration: 3 minutes.',
-            '	The decision of the judges will be final.'
+            '	The decision of the judges will be final.',
+			' Only Tamil songs are allowed for singing performances.',
+			'Vulgar language, offensive songs, and music are not allowed.'
+			
         ]
     }
 ];
+
 
 
