@@ -74,6 +74,10 @@ body {
     padding: var(--spacing-md) 0;
     transition: all var(--transition-base);
     background: transparent;
+    z-index: 1050;
+    position: fixed !important;
+    top: 0;
+    width: 100%;
 }
 
 .navbar.scrolled {
@@ -122,15 +126,39 @@ body {
 }
 
 .navbar-toggler {
-    border-color: var(--white);
+    border: 2px solid var(--white);
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .navbar.scrolled .navbar-toggler {
     border-color: var(--primary-color);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+    outline: none;
+}
+
+.navbar.scrolled .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.25);
+}
+
+.navbar-toggler:not(.collapsed) {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.navbar.scrolled .navbar-toggler:not(.collapsed) {
+    background: rgba(99, 102, 241, 0.2);
 }
 
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    width: 24px;
+    height: 24px;
 }
 
 .navbar.scrolled .navbar-toggler-icon {
@@ -209,6 +237,8 @@ body {
     }
 }
 
+
+
 @media (max-width: 576px) {
     .logo-group {
         gap: 8px;
@@ -228,6 +258,13 @@ body {
         padding-bottom: 6px !important;
     }
 }
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: calc(100vh - 90px);
+    }
+}
+
 
 @media (max-width: 480px) {
     .logo-group {
@@ -744,9 +781,15 @@ body {
 }
 
 /* Modal */
+.modal {
+    z-index: 1060;
+}
+
 .modal-content {
     border-radius: var(--radius-xl);
     border: none;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .modal-header {
@@ -790,7 +833,7 @@ body {
 }
 
 .event-rules h6 {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-2xl);
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: var(--spacing-md);
@@ -811,7 +854,7 @@ body {
     padding-left: var(--spacing-lg);
     position: relative;
     color: var(--text-dark);
-    font-size: var(--font-size-base);
+    font-size: 17px;
     line-height: 1.6;
 }
 
@@ -1290,6 +1333,62 @@ body {
 
 /* Tablets */
 @media (max-width: 768px) {
+    body {
+        padding-top: 90px !important;
+    }
+    
+    .navbar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        z-index: 1050 !important;
+    }
+    
+    .navbar-toggler {
+        display: inline-block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        border: 2px solid white !important;
+        background: rgba(0, 0, 0, 0.3) !important;
+        padding: 6px 8px !important;
+        border-radius: 4px !important;
+    }
+    
+    .navbar.scrolled .navbar-toggler {
+        border-color: var(--primary-color) !important;
+        background: rgba(99, 102, 241, 0.3) !important;
+    }
+    
+    .navbar-toggler:focus {
+        box-shadow: none !important;
+        outline: none !important;
+    }
+    
+    .navbar-toggler-icon {
+        width: 18px !important;
+        height: 18px !important;
+        display: inline-block !important;
+        background-size: 100% 100% !important;
+    }
+    
+    .navbar-collapse {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px) !important;
+        border-radius: 8px !important;
+        margin-top: 10px !important;
+        padding: 15px !important;
+    }
+    
+    .navbar.scrolled .navbar-collapse {
+        background: rgba(255, 255, 255, 0.98) !important;
+    }
+    
+    .hero-section {
+        margin-top: 90px !important;
+    }
+    
     .college-name {
         font-size: 2.2rem;
         letter-spacing: 2px;
@@ -1385,6 +1484,27 @@ body {
     .navbar {
         padding-top: 8px !important;
         padding-bottom: 8px !important;
+        position: fixed !important;
+        top: 0;
+        width: 100%;
+        z-index: 1050;
+    }
+    
+    .navbar-toggler {
+        display: block !important;
+        border: 2px solid var(--white) !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        padding: 8px !important;
+    }
+    
+    .navbar.scrolled .navbar-toggler {
+        border-color: var(--primary-color) !important;
+        background: rgba(99, 102, 241, 0.2) !important;
+    }
+    
+    .navbar-toggler-icon {
+        width: 20px !important;
+        height: 20px !important;
     }
     
     .hero-logos {
@@ -1405,6 +1525,48 @@ body {
 
 /* Large phones */
 @media (max-width: 576px) {
+    body {
+        padding-top: 85px !important;
+    }
+    
+    .navbar {
+        position: fixed !important;
+        top: 0 !important;
+        width: 100% !important;
+        z-index: 1050 !important;
+    }
+    
+    .navbar-toggler {
+        display: inline-block !important;
+        visibility: visible !important;
+        border: 2px solid white !important;
+        background: rgba(0, 0, 0, 0.4) !important;
+        padding: 5px 7px !important;
+        border-radius: 3px !important;
+    }
+    
+    .navbar.scrolled .navbar-toggler {
+        border-color: var(--primary-color) !important;
+        background: rgba(99, 102, 241, 0.4) !important;
+    }
+    
+    .navbar-toggler:focus {
+        box-shadow: none !important;
+        outline: none !important;
+    }
+    
+    .navbar-collapse {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px) !important;
+        border-radius: 6px !important;
+        margin-top: 8px !important;
+        padding: 12px !important;
+    }
+    
+    .hero-section {
+        margin-top: 85px !important;
+    }
+    
     .college-name {
         font-size: 1.8rem;
         letter-spacing: 1px;
@@ -1503,6 +1665,28 @@ body {
     
     .modal-dialog {
         margin: var(--spacing-md);
+        max-width: 95% !important;
+    }
+    
+    .modal-content {
+        max-height: 80vh !important;
+        overflow-y: auto !important;
+    }
+    
+    .modal-body {
+        padding: var(--spacing-md) !important;
+    }
+    
+    .event-rules {
+        padding: var(--spacing-sm) !important;
+    }
+    
+    .event-topics {
+        padding: var(--spacing-sm) !important;
+    }
+    
+    .topics-list {
+        grid-template-columns: 1fr !important;
     }
     
     /* Logo responsive */
@@ -1522,6 +1706,22 @@ body {
     .navbar {
         padding-top: 6px !important;
         padding-bottom: 6px !important;
+        position: fixed !important;
+        top: 0;
+        width: 100%;
+        z-index: 1050;
+    }
+    
+    .navbar-toggler {
+        display: block !important;
+        border: 2px solid var(--white) !important;
+        background: rgba(255, 255, 255, 0.3) !important;
+        padding: 6px !important;
+    }
+    
+    .navbar.scrolled .navbar-toggler {
+        border-color: var(--primary-color) !important;
+        background: rgba(99, 102, 241, 0.3) !important;
     }
     
     .hero-logos {
@@ -1558,6 +1758,48 @@ body {
 
 /* Small phones */
 @media (max-width: 480px) {
+    body {
+        padding-top: 0px !important;
+    }
+    
+    .navbar {
+        position: fixed !important;
+        top: 0 !important;
+        width: 100% !important;
+        z-index: 1050 !important;
+    }
+    
+    .navbar-toggler {
+        display: inline-block !important;
+        visibility: visible !important;
+        border: 2px solid white !important;
+        background: rgba(0, 0, 0, 0.5) !important;
+        padding: 4px 6px !important;
+        border-radius: 3px !important;
+    }
+    
+    .navbar.scrolled .navbar-toggler {
+        border-color: var(--primary-color) !important;
+        background: rgba(99, 102, 241, 0.5) !important;
+    }
+    
+    .navbar-toggler:focus {
+        box-shadow: none !important;
+        outline: none !important;
+    }
+    
+    .navbar-collapse {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px) !important;
+        border-radius: 4px !important;
+        margin-top: 6px !important;
+        padding: 10px !important;
+    }
+    
+    .hero-section {
+        margin-top: 80px !important;
+    }
+    
     .college-name {
         font-size: 1.5rem;
         letter-spacing: 0.5px;
@@ -1616,6 +1858,24 @@ body {
     
     .varit-logo {
         height: 40px;
+    }
+    
+    .navbar {
+        position: fixed !important;
+        top: 0;
+        width: 100%;
+        z-index: 1050;
+    }
+    
+    .navbar-toggler {
+        display: block !important;
+        border: 2px solid var(--white) !important;
+        background: rgba(255, 255, 255, 0.3) !important;
+    }
+    
+    .navbar.scrolled .navbar-toggler {
+        border-color: var(--primary-color) !important;
+        background: rgba(99, 102, 241, 0.3) !important;
     }
     
     .hero-logos {
