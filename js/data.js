@@ -25,6 +25,7 @@ const eventsData = [
             'Preliminary rounds will be conducte',
             'Participants will be asked to design a webpage under the given theme in final round',
             'Domain: HTML, CSS',
+			'Participants must design the webpage using Notepad only',
             'The decision of the judges is final'
         ]
     },
@@ -117,6 +118,7 @@ const eventsData = [
         ]
     }
 ];
+
 
 
 
